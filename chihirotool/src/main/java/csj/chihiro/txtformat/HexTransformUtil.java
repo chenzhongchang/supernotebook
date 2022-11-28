@@ -18,6 +18,14 @@ public class HexTransformUtil {
         }
     }
 
+    public static int specialHexToInt(String hex){
+        if(hex.startsWith("x")){
+            hex=hex.substring(1);
+            return hexToInt(hex);
+        }else{
+            return hexGetInt(hex);
+        }
+    }
     public static int hexToInt(String hex){
         if(hex.startsWith("f")){
             String val=getHexstr(hex);
@@ -51,6 +59,7 @@ public class HexTransformUtil {
         return result;
     }
     public static int hexGetInt1(String hex){
+        hex=hex.toLowerCase();
         int leng=hex.length();
         int val=0;
         for(int i=1;i<=leng;i++){
@@ -65,6 +74,7 @@ public class HexTransformUtil {
         return val;
     }
     public static int hexGetInt(String hex){
+        hex=hex.toLowerCase();
         int leng=hex.length();
         int val=0;
         for(int i=1;i<=leng;i++){
